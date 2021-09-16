@@ -35,11 +35,10 @@ let cancionesController = {
 
     // Insertar una fila en la tabla
     crear: function(req,res){
-        db.Cancion
-        .create(req.body)
-        .then(cancion => {
+        db.Cancion.create(req.body).then(cancion => {
             console.log("Crear ok");
             return res.json({
+                total: cancion.length,
                 data: cancion,
                 status: 200 
             });
@@ -59,7 +58,12 @@ let cancionesController = {
                 id: req.params.id
             }
         }
-        );
+        ).then(cancion =>{
+            return res.json({
+                estado: "Completo",
+                status: 200 
+            });
+        })
         console.log(req.params.id)
     },
     // Elimina una fila en la tabla
