@@ -60,7 +60,7 @@ let cancionesController = {
         }
         ).then(cancion =>{
             return res.json({
-                estado: "Completo",
+                editar: "OK",
                 status: 200 
             });
         })
@@ -75,7 +75,7 @@ let cancionesController = {
         })
         .then(cancion => {
             return res.json({
-                data: cancion,
+                eliminado: "OK",
                 status: 200 
             });
         })
